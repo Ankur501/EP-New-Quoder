@@ -14,6 +14,105 @@ export type Database = {
   }
   public: {
     Tables: {
+      assessments: {
+        Row: {
+          appearance_analysis: Json | null
+          appearance_score: number | null
+          communication_analysis: Json | null
+          communication_score: number | null
+          created_at: string | null
+          error_message: string | null
+          id: string
+          overall_score: number | null
+          status: string | null
+          storytelling_analysis: Json | null
+          storytelling_score: number | null
+          transcript: string | null
+          updated_at: string | null
+          user_id: string
+          video_duration_seconds: number | null
+          video_path: string
+        }
+        Insert: {
+          appearance_analysis?: Json | null
+          appearance_score?: number | null
+          communication_analysis?: Json | null
+          communication_score?: number | null
+          created_at?: string | null
+          error_message?: string | null
+          id?: string
+          overall_score?: number | null
+          status?: string | null
+          storytelling_analysis?: Json | null
+          storytelling_score?: number | null
+          transcript?: string | null
+          updated_at?: string | null
+          user_id: string
+          video_duration_seconds?: number | null
+          video_path: string
+        }
+        Update: {
+          appearance_analysis?: Json | null
+          appearance_score?: number | null
+          communication_analysis?: Json | null
+          communication_score?: number | null
+          created_at?: string | null
+          error_message?: string | null
+          id?: string
+          overall_score?: number | null
+          status?: string | null
+          storytelling_analysis?: Json | null
+          storytelling_score?: number | null
+          transcript?: string | null
+          updated_at?: string | null
+          user_id?: string
+          video_duration_seconds?: number | null
+          video_path?: string
+        }
+        Relationships: []
+      }
+      payments: {
+        Row: {
+          admin_notes: string | null
+          amount: number | null
+          created_at: string | null
+          currency: string | null
+          id: string
+          payment_method: string | null
+          plan_name: string
+          status: string | null
+          transaction_id: string | null
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          admin_notes?: string | null
+          amount?: number | null
+          created_at?: string | null
+          currency?: string | null
+          id?: string
+          payment_method?: string | null
+          plan_name: string
+          status?: string | null
+          transaction_id?: string | null
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          admin_notes?: string | null
+          amount?: number | null
+          created_at?: string | null
+          currency?: string | null
+          id?: string
+          payment_method?: string | null
+          plan_name?: string
+          status?: string | null
+          transaction_id?: string | null
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -76,6 +175,45 @@ export type Database = {
           logout_at?: string | null
           session_duration_seconds?: number | null
           user_agent?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_plans: {
+        Row: {
+          created_at: string | null
+          current_period_end: string | null
+          current_period_start: string | null
+          id: string
+          plan_name: string | null
+          stripe_customer_id: string | null
+          stripe_subscription_id: string | null
+          subscription_status: string | null
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          current_period_end?: string | null
+          current_period_start?: string | null
+          id?: string
+          plan_name?: string | null
+          stripe_customer_id?: string | null
+          stripe_subscription_id?: string | null
+          subscription_status?: string | null
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          current_period_end?: string | null
+          current_period_start?: string | null
+          id?: string
+          plan_name?: string | null
+          stripe_customer_id?: string | null
+          stripe_subscription_id?: string | null
+          subscription_status?: string | null
+          updated_at?: string | null
           user_id?: string
         }
         Relationships: []
