@@ -10,267 +10,127 @@ export type Database = {
   // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
-    PostgrestVersion: "13.0.5"
+    PostgrestVersion: "14.4"
   }
   public: {
     Tables: {
-      api_usage: {
+      profiles: {
         Row: {
-          called_at: string
-          function_name: string
-          id: string
-          user_id: string
-        }
-        Insert: {
-          called_at?: string
-          function_name: string
-          id?: string
-          user_id: string
-        }
-        Update: {
-          called_at?: string
-          function_name?: string
-          id?: string
-          user_id?: string
-        }
-        Relationships: []
-      }
-      assessments: {
-        Row: {
-          appearance_analysis: Json | null
-          appearance_score: number | null
-          communication_analysis: Json | null
-          communication_score: number | null
-          completed_at: string | null
-          created_at: string
-          error_message: string | null
-          id: string
-          overall_score: number | null
-          status: string
-          storytelling_analysis: Json | null
-          storytelling_score: number | null
-          transcript: string | null
-          user_id: string
-          video_duration_seconds: number | null
-          video_path: string | null
-          video_url: string | null
-        }
-        Insert: {
-          appearance_analysis?: Json | null
-          appearance_score?: number | null
-          communication_analysis?: Json | null
-          communication_score?: number | null
-          completed_at?: string | null
-          created_at?: string
-          error_message?: string | null
-          id?: string
-          overall_score?: number | null
-          status?: string
-          storytelling_analysis?: Json | null
-          storytelling_score?: number | null
-          transcript?: string | null
-          user_id: string
-          video_duration_seconds?: number | null
-          video_path?: string | null
-          video_url?: string | null
-        }
-        Update: {
-          appearance_analysis?: Json | null
-          appearance_score?: number | null
-          communication_analysis?: Json | null
-          communication_score?: number | null
-          completed_at?: string | null
-          created_at?: string
-          error_message?: string | null
-          id?: string
-          overall_score?: number | null
-          status?: string
-          storytelling_analysis?: Json | null
-          storytelling_score?: number | null
-          transcript?: string | null
-          user_id?: string
-          video_duration_seconds?: number | null
-          video_path?: string | null
-          video_url?: string | null
-        }
-        Relationships: []
-      }
-      coaching_requests: {
-        Row: {
-          created_at: string
-          email: string
-          id: string
-          name: string
-          notes: string | null
-          preferred_times: string | null
-          primary_goal: string | null
-          status: string
-          user_id: string | null
-        }
-        Insert: {
-          created_at?: string
-          email: string
-          id?: string
-          name: string
-          notes?: string | null
-          preferred_times?: string | null
-          primary_goal?: string | null
-          status?: string
-          user_id?: string | null
-        }
-        Update: {
-          created_at?: string
-          email?: string
-          id?: string
-          name?: string
-          notes?: string | null
-          preferred_times?: string | null
-          primary_goal?: string | null
-          status?: string
-          user_id?: string | null
-        }
-        Relationships: []
-      }
-      payments: {
-        Row: {
-          admin_notes: string | null
-          amount: number
-          approved_at: string | null
-          approved_by: string | null
-          created_at: string
-          currency: string
-          id: string
-          payment_method: string
-          plan_name: string
-          status: string
-          user_id: string
-        }
-        Insert: {
-          admin_notes?: string | null
-          amount: number
-          approved_at?: string | null
-          approved_by?: string | null
-          created_at?: string
-          currency?: string
-          id?: string
-          payment_method?: string
-          plan_name: string
-          status?: string
-          user_id: string
-        }
-        Update: {
-          admin_notes?: string | null
-          amount?: number
-          approved_at?: string | null
-          approved_by?: string | null
-          created_at?: string
-          currency?: string
-          id?: string
-          payment_method?: string
-          plan_name?: string
-          status?: string
-          user_id?: string
-        }
-        Relationships: []
-      }
-      user_plans: {
-        Row: {
-          id: string
-          is_active: boolean
-          plan_name: string
-          selected_at: string
-          trial_ends_at: string | null
-          trial_started_at: string | null
-          user_id: string
-        }
-        Insert: {
-          id?: string
-          is_active?: boolean
-          plan_name: string
-          selected_at?: string
-          trial_ends_at?: string | null
-          trial_started_at?: string | null
-          user_id: string
-        }
-        Update: {
-          id?: string
-          is_active?: boolean
-          plan_name?: string
-          selected_at?: string
-          trial_ends_at?: string | null
-          trial_started_at?: string | null
-          user_id?: string
-        }
-        Relationships: []
-      }
-      user_roles: {
-        Row: {
+          avatar_url: string | null
           created_at: string | null
+          email: string
+          full_name: string | null
           id: string
-          role: Database["public"]["Enums"]["app_role"]
+          tier: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string | null
+          email: string
+          full_name?: string | null
+          id: string
+          tier?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string | null
+          email?: string
+          full_name?: string | null
+          id?: string
+          tier?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      user_login_history: {
+        Row: {
+          device_info: string | null
+          id: string
+          ip_address: string | null
+          login_at: string | null
+          login_method: string | null
+          logout_at: string | null
+          session_duration_seconds: number | null
+          user_agent: string | null
           user_id: string
         }
         Insert: {
-          created_at?: string | null
+          device_info?: string | null
           id?: string
-          role: Database["public"]["Enums"]["app_role"]
+          ip_address?: string | null
+          login_at?: string | null
+          login_method?: string | null
+          logout_at?: string | null
+          session_duration_seconds?: number | null
+          user_agent?: string | null
           user_id: string
         }
         Update: {
-          created_at?: string | null
+          device_info?: string | null
           id?: string
-          role?: Database["public"]["Enums"]["app_role"]
+          ip_address?: string | null
+          login_at?: string | null
+          login_method?: string | null
+          logout_at?: string | null
+          session_duration_seconds?: number | null
+          user_agent?: string | null
           user_id?: string
         }
         Relationships: []
       }
-      video_usage: {
+      user_sessions: {
         Row: {
-          assessment_id: string | null
-          created_at: string
+          browser: string | null
+          created_at: string | null
+          device_name: string | null
+          expires_at: string
           id: string
-          month_year: string
+          ip_address: string | null
+          is_active: boolean | null
+          last_activity_at: string | null
+          os: string | null
+          session_token: string
           user_id: string
         }
         Insert: {
-          assessment_id?: string | null
-          created_at?: string
+          browser?: string | null
+          created_at?: string | null
+          device_name?: string | null
+          expires_at: string
           id?: string
-          month_year: string
+          ip_address?: string | null
+          is_active?: boolean | null
+          last_activity_at?: string | null
+          os?: string | null
+          session_token: string
           user_id: string
         }
         Update: {
-          assessment_id?: string | null
-          created_at?: string
+          browser?: string | null
+          created_at?: string | null
+          device_name?: string | null
+          expires_at?: string
           id?: string
-          month_year?: string
+          ip_address?: string | null
+          is_active?: boolean | null
+          last_activity_at?: string | null
+          os?: string | null
+          session_token?: string
           user_id?: string
         }
-        Relationships: [
-          {
-            foreignKeyName: "video_usage_assessment_id_fkey"
-            columns: ["assessment_id"]
-            isOneToOne: false
-            referencedRelation: "assessments"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      has_role: {
-        Args: {
-          _role: Database["public"]["Enums"]["app_role"]
-          _user_id: string
-        }
-        Returns: boolean
-      }
+      [_ in never]: never
     }
     Enums: {
-      app_role: "admin" | "user"
+      [_ in never]: never
     }
     CompositeTypes: {
       [_ in never]: never
@@ -397,8 +257,6 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {
-      app_role: ["admin", "user"],
-    },
+    Enums: {},
   },
 } as const
